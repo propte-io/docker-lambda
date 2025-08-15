@@ -17,5 +17,7 @@ docker buildx build \
     --platform=linux/amd64 \
     --build-arg GDAL_VERSION_TAG=${GDAL_VERSION_TAG} \
     --build-arg RUNTIME_VERSION=${RUNTIME_VERSION} \
+    --build-arg PKG_INSTALLER="yum" \
+    --build-arg NUMPY_VERSION="1.24.3" \
     -f dockerfiles/runtimes/${RUNTIME} \
     -t ghcr.io/lambgeo/lambda-gdal:${GDAL_VERSION_TAG}-${RUNTIME}${RUNTIME_VERSION} .
